@@ -1,10 +1,10 @@
+import 'virtual:uno.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 import { createApp } from 'vue'
 
-import 'virtual:uno.css'
-import './assets/main.css'
-
 import App from './App.vue'
-import { setupPlugins } from './_core/utils/plugins'
+import { setupPlugins } from './@core/utils/plugins'
 
 const app = createApp(App)
 

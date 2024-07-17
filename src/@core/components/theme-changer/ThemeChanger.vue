@@ -18,6 +18,7 @@ const { settings, updateSettings } = useSettings()
         }
       ]"
       @click="updateSettings({ themeMode: item.key })"
+      @keydown="updateSettings({ themeMode: item.key })"
     >
       <component :is="item.icon" />
     </div>

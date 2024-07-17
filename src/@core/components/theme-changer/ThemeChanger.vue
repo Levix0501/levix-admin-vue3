@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { useSettings } from '@/@core/stores/settings'
-import { themeChangeItems } from './themeChangerItems'
+import { themeChangerItems } from './themeChangerItems'
 const { settings, updateSettings } = useSettings()
 </script>
 
 <template>
   <div class="flex space-x-2">
     <div
-      v-for="(item, index) in themeChangeItems"
+      v-for="(item, index) in themeChangerItems"
       :key="index"
       role="button"
       :class="[

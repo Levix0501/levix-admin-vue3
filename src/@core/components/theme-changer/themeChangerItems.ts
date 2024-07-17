@@ -1,6 +1,7 @@
 import { Laptop2, Moon, Sun } from 'lucide-vue-next'
+import type { ThemeMode } from '@core/types/settings'
 
-export const themeChangeItems: { key: ThemeMode; icon: Component; label: string }[] = [
+export const themeChangerItems: { key: ThemeMode; icon: Component; label: string }[] = [
   {
     key: 'light',
     icon: Sun,

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useSettings } from '@core/stores/settings'
+import { themeChangerItems } from './themeChangerItems'
 
 const { settings, updateSettings } = useSettings()
 </script>

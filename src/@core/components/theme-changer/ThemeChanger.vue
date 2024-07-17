@@ -6,7 +6,7 @@ const { settings, updateSettings } = useSettings()
 
 <template>
   <div class="flex space-x-2">
-    <div
+    <button
       v-for="(item, index) in themeChangerItems"
       :key="index"
       role="button"
@@ -18,10 +18,9 @@ const { settings, updateSettings } = useSettings()
         }
       ]"
       @click="updateSettings({ themeMode: item.key })"
-      @keydown="updateSettings({ themeMode: item.key })"
     >
       <component :is="item.icon" />
-    </div>
+    </button>
   </div>
 </template>
 

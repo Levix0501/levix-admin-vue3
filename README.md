@@ -1,5 +1,10 @@
 # levix-admin-vue3
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/27da6c0184b34189bb88556c4aebe25b)](https://app.codacy.com/gh/Levix0501/levix-admin-vue3/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Levix0501_levix-admin-vue3&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Levix0501_levix-admin-vue3)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
+
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

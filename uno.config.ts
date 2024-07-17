@@ -2,5 +2,18 @@
 import { defineConfig } from 'unocss'
 
 export default defineConfig({
-  // ...UnoCSS options
+  theme: {
+    colors: {
+      primary: 'var(--el-color-primary)'
+    }
+  },
+  preflights: [
+    {
+      getCSS: () => `
+      * {
+        border-color: var(--el-border-color);
+      }
+    `
+    }
+  ]
 })

@@ -1,25 +1,5 @@
 <script lang="ts" setup>
-import { Laptop2, Moon, Sun } from 'lucide-vue-next'
-import type { ThemeMode } from '@core/types/settings'
-import { useSettings } from '../stores/settings'
-
-const items: { key: ThemeMode; icon: Component; label: string }[] = [
-  {
-    key: 'light',
-    icon: Sun,
-    label: 'Light'
-  },
-  {
-    key: 'dark',
-    icon: Moon,
-    label: 'Dark'
-  },
-  {
-    key: 'system',
-    icon: Laptop2,
-    label: 'System'
-  }
-]
+import { useSettings } from '@core/stores/settings'
 
 const { settings, updateSettings } = useSettings()
 </script>
@@ -38,7 +18,7 @@ const { settings, updateSettings } = useSettings()
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item
-          v-for="e in items"
+          v-for="e in themeChangerItems"
           :key="e.key"
           :icon="e.icon"
           :class="[{ active: settings.themeMode === e.key }]"

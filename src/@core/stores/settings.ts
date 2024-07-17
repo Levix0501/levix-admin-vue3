@@ -1,19 +1,22 @@
-import { appConfig } from '@/configs/appConfig'
+import { appConfig } from '@config/appConfig'
 import type { Settings } from '../types/settings'
 import { isDarkTheme } from '../utils/theme'
 
 export const useSettings = defineStore('settings', () => {
-  const settings = useLocalStorage<Settings>(appConfig.settingsStorageName, {
+  const _settings = useLocalStorage<Settings>(appConfig.settingsStorageName, {
     themeMode: appConfig.defaultThemeMode,
-    systemTheme: appConfig.defaultSystemTheme
+    systemTheme: appConfig.defaultSystemTheme,
+    primaryColor: appConfig.primaryColor
   })
   const isSystemThemeDark = usePreferredDark()
-  const isDark = useDark()
+  const isDark = useDark({ disableTransition: false })
+  const brandColor = useCssVar('--el-color-primary')
 
   watch(
-    settings,
-    ({ themeMode, systemTheme }) => {
+    _settings,
+    ({ themeMode, systemTheme, primaryColor }) => {
       isDark.value = isDarkTheme(themeMode, systemTheme)
+      brandColor.value = primaryColor
     },
     {
       immediate: true,
@@ -24,16 +27,18 @@ export const useSettings = defineStore('settings', () => {
   watch(
     isSystemThemeDark,
     (val) => {
-      settings.value.systemTheme = val ? 'dark' : 'light'
+      _settings.value.systemTheme = val ? 'dark' : 'light'
     },
     {
       immediate: true
     }
   )
 
-  const updateSettings = (_settings: Partial<Settings>) => {
-    Object.assign(settings.value, _settings)
+  const updateSettings = (newVal: Partial<Settings>) => {
+    Object.assign(_settings.value, newVal)
   }
+
+  const settings = computed(() => _settings.value)
 
   return { settings, updateSettings }
 })
